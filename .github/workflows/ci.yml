@@ -37,17 +37,17 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t devops-itnav-flask-cicd-pytest-project .
+          docker build -t flask-cicd-demo .
 
       - name: Tag image
         run: |
-          docker tag devops-itnav-flask-cicd-pytest-project:latest \
-          ${{ steps.login-ecr.outputs.registry }}/devops-itnav-flask-cicd-pytest-project:latest
+          docker tag flask-cicd-demo:latest \
+          ${{ steps.login-ecr.outputs.registry }}/flask-cicd-demo:latest
 
       - name: Push image to ECR
         run: |
           docker push \
-          ${{ steps.login-ecr.outputs.registry }}/devops-itnav-flask-cicd-pytest-project:latest
+          ${{ steps.login-ecr.outputs.registry }}/flask-cicd-demo:latest
 
       - name: Lint with flake8
         run: |
