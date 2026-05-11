@@ -2,17 +2,21 @@ from flask import Flask, jsonify
 
 app = Flask(__name__)
 
+
 @app.route("/", methods=["GET"])
 def home():
     return jsonify({
         "message": "CI/CD Demo."
     })
 
+
 @app.route("/health", methods=["GET"])
 def health():
     return jsonify({
         "status": "ok"
     })
+
+
 @app.route("/tal", methods=["GET"])
 def tal():
     return "working", 200
